@@ -1,0 +1,36 @@
+name: Bug Report
+description: Report a reproducible LLM Council issue.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Include commands, browser route, backend route, or input prompt.
+      placeholder: |
+        1. Run ...
+        2. Open ...
+        3. Submit ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: OS, Python version, Node version, browser, relevant model IDs.
+    validations:
+      required: false

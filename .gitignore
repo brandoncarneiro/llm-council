@@ -1,0 +1,42 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage/
+htmlcov/
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Keys and secrets
+.env
+.env.*
+!.env.example
+
+# Data files
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+frontend/test-results/
+frontend/playwright-report/
+
+# Local OS/tool artifacts
+.DS_Store
+.playwright-mcp/
+check*.png
+council-initial.png

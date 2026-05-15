@@ -1,0 +1,39 @@
+name: Feature Request
+description: Propose a focused improvement to LLM Council.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What decision workflow, setup issue, or maintainer problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe the smallest useful version of the feature.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Note any simpler workaround or reason this belongs in the project.
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Backend orchestration
+        - Frontend UI
+        - Storage
+        - Documentation
+        - Tests or CI
+        - Security or privacy
+    validations:
+      required: true

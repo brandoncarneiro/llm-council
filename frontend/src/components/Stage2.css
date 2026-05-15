@@ -1,0 +1,25 @@
+.ranking-summary {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.85rem 1.1rem 0;
+  list-style: none;
+}
+
+.ranking-summary li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-muted);
+}
+
+.ranking-summary span {
+  font-weight: 760;
+}
+
+.ranking-summary small {
+  color: var(--muted);
+}
