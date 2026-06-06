@@ -4,10 +4,32 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
+  hygiene:
+    name: Public Tree Hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for unsafe public artifacts
+        run: |
+          unsafe="$(git ls-files | grep -E '(^|/)(\.env|\.env\..*|.*\.pem|.*\.key|.*cookie.*|.*cookies.*|.*\.dump|.*\.log|.*\.sqlite3?|data/|logs/|screenshots/)' | grep -v '^\.env\.example$' || true)"
+          if [ -n "$unsafe" ]; then
+            echo "$unsafe"
+            echo "Tracked public tree contains local/private/generated artifacts."
+            exit 1
+          fi
+
+      - name: Check whitespace
+        run: git diff --check
+
   backend:
     name: Backend
     runs-on: ubuntu-latest
+    needs: [hygiene]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,6 +46,7 @@ jobs:
   frontend:
     name: Frontend
     runs-on: ubuntu-latest
+    needs: [hygiene]
     defaults:
       run:
         working-directory: frontend
@@ -43,6 +66,7 @@ jobs:
   secret-scan:
     name: Secret Scan
     runs-on: ubuntu-latest
+    needs: [hygiene]
     steps:
       - uses: actions/checkout@v4
       - name: Check for obvious committed secrets

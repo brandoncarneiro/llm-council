@@ -145,6 +145,8 @@ docs/
 
 Detailed notes: [docs/architecture.md](docs/architecture.md).
 
+For a reviewer-focused summary of what is intentionally public, what CI proves, and what remains out of scope, see [Public Review Notes](docs/public-review.md).
+
 ## Environment
 
 | Variable | Required | Default | Notes |
